@@ -1,0 +1,504 @@
+{
+  "model": {
+    "algorithm": "RandomForestClassifier",
+    "pipeline": [
+      "SimpleImputer(strategy='median')",
+      "RandomForestClassifier"
+    ],
+    "parameters": {
+      "n_estimators": 150,
+      "max_depth": 24,
+      "min_samples_leaf": 2,
+      "class_weight": "balanced",
+      "random_state": 42
+    },
+    "n_features": 60,
+    "decision_threshold": 0.5,
+    "scikit_learn_version": "1.9.1",
+    "trained_at": "2026-11-26T23:54:47",
+    "total_run_seconds": 8.7
+  },
+  "dataset": {
+    "name": "CIC-IDS2017",
+    "files": [
+      "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv"
+    ],
+    "total_records": 225745,
+    "label_counts": {
+      "DDoS": 128027,
+      "BENIGN": 97718
+    },
+    "class_balance": {
+      "total": 225745,
+      "benign": 97718,
+      "malicious": 128027,
+      "benign_pct": 43.28689450486168,
+      "malicious_pct": 56.713105495138315,
+      "majority_baseline_accuracy": 0.5671310549513832
+    }
+  },
+  "audit": {
+    "rows_before": 225745,
+    "exact_duplicate_rows_removed": 2633,
+    "conflicting_label_rows_removed": 0,
+    "conflicting_label_groups": 0,
+    "rows_after_deduplication": 223112,
+    "rows_removed_pct": 1.1663602737602161,
+    "duplicate_columns_considered": 78,
+    "label_in_features": false,
+    "identifier_columns_present": [],
+    "identifier_columns_used": [],
+    "preprocessing_fitted_on": "training split only (feature selection + median imputation)",
+    "split": "stratified 80/20, random_state=42",
+    "label_permutation_check": {
+      "rows_used": 40000,
+      "shuffled_label_accuracy": 0.514,
+      "majority_baseline": 0.5726,
+      "passed": true
+    }
+  },
+  "primary_evaluation": "deduplicated_split",
+  "evaluations": {
+    "deduplicated_split": {
+      "accuracy": 0.9998431302243238,
+      "precision": 0.9999609359740614,
+      "recall": 0.9997656616153726,
+      "f1": 0.9998632892603949,
+      "false_positive_rate": 5.2578999947421e-05,
+      "false_negative_rate": 0.00023433838462740198,
+      "confusion_matrix": [
+        [
+          19018,
+          1
+        ],
+        [
+          6,
+          25598
+        ]
+      ],
+      "confusion_labels": [
+        "Benign",
+        "Malicious"
+      ],
+      "true_negatives": 19018,
+      "false_positives": 1,
+      "false_negatives": 6,
+      "true_positives": 25598,
+      "support": 44623,
+      "classification_report": {
+        "Benign": {
+          "precision": 0.9996846089150546,
+          "recall": 0.9999474210000526,
+          "f1-score": 0.999815997686828,
+          "support": 19019.0
+        },
+        "Malicious": {
+          "precision": 0.9999609359740614,
+          "recall": 0.9997656616153726,
+          "f1-score": 0.9998632892603949,
+          "support": 25604.0
+        },
+        "accuracy": 0.9998431302243238,
+        "macro avg": {
+          "precision": 0.9998227724445581,
+          "recall": 0.9998565413077126,
+          "f1-score": 0.9998396434736114,
+          "support": 44623.0
+        },
+        "weighted avg": {
+          "precision": 0.9998431611867263,
+          "recall": 0.9998431302243238,
+          "f1-score": 0.9998431328738304,
+          "support": 44623.0
+        }
+      },
+      "roc_auc": 0.9999787889200727,
+      "name": "deduplicated_split",
+      "train_rows": 178489,
+      "test_rows": 44623,
+      "train_class_balance": {
+        "total": 178489,
+        "benign": 76077,
+        "malicious": 102412,
+        "benign_pct": 42.62279468202522,
+        "malicious_pct": 57.37720531797478,
+        "majority_baseline_accuracy": 0.5737720531797478
+      },
+      "test_class_balance": {
+        "total": 44623,
+        "benign": 19019,
+        "malicious": 25604,
+        "benign_pct": 42.62151805122919,
+        "malicious_pct": 57.37848194877081,
+        "majority_baseline_accuracy": 0.5737848194877081
+      },
+      "overlap": {
+        "test_rows": 44623,
+        "test_rows_seen_in_train": 0,
+        "test_rows_seen_in_train_pct": 0.0
+      },
+      "training_seconds": 2.3
+    },
+    "naive_random_split": {
+      "accuracy": 0.9999557022303927,
+      "precision": 1.0,
+      "recall": 0.9999218902558095,
+      "f1": 0.999960943602562,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 7.810974419058778e-05,
+      "confusion_matrix": [
+        [
+          19544,
+          0
+        ],
+        [
+          2,
+          25603
+        ]
+      ],
+      "confusion_labels": [
+        "Benign",
+        "Malicious"
+      ],
+      "true_negatives": 19544,
+      "false_positives": 0,
+      "false_negatives": 2,
+      "true_positives": 25603,
+      "support": 45149,
+      "classification_report": {
+        "Benign": {
+          "precision": 0.9998976772741226,
+          "recall": 1.0,
+          "f1-score": 0.9999488360194423,
+          "support": 19544.0
+        },
+        "Malicious": {
+          "precision": 1.0,
+          "recall": 0.9999218902558095,
+          "f1-score": 0.999960943602562,
+          "support": 25605.0
+        },
+        "accuracy": 0.9999557022303927,
+        "macro avg": {
+          "precision": 0.9999488386370613,
+          "recall": 0.9999609451279048,
+          "f1-score": 0.9999548898110022,
+          "support": 45149.0
+        },
+        "weighted avg": {
+          "precision": 0.9999557067630613,
+          "recall": 0.9999557022303927,
+          "f1-score": 0.9999557024985622,
+          "support": 45149.0
+        }
+      },
+      "roc_auc": 0.9999998801017025,
+      "name": "naive_random_split",
+      "train_rows": 180596,
+      "test_rows": 45149,
+      "train_class_balance": {
+        "total": 180596,
+        "benign": 78174,
+        "malicious": 102422,
+        "benign_pct": 43.286673016013644,
+        "malicious_pct": 56.713326983986356,
+        "majority_baseline_accuracy": 0.5671332698398636
+      },
+      "test_class_balance": {
+        "total": 45149,
+        "benign": 19544,
+        "malicious": 25605,
+        "benign_pct": 43.28778046025383,
+        "malicious_pct": 56.71221953974618,
+        "majority_baseline_accuracy": 0.5671221953974618
+      },
+      "overlap": {
+        "test_rows": 45149,
+        "test_rows_seen_in_train": 720,
+        "test_rows_seen_in_train_pct": 1.59471970586281
+      },
+      "training_seconds": 2.49
+    }
+  },
+  "cross_validation": {
+    "folds": 3,
+    "metric": "f1",
+    "trees_per_fold": 60,
+    "scores": [
+      0.9997656227111593,
+      0.9999414091108833,
+      0.9998535099027306
+    ],
+    "mean": 0.9998535139082577,
+    "std": 7.176449722998441e-05
+  },
+  "feature_importance": [
+    {
+      "feature": "Fwd Packet Length Max",
+      "importance": 0.09908171929228637
+    },
+    {
+      "feature": "Fwd Packet Length Mean",
+      "importance": 0.08684980908651545
+    },
+    {
+      "feature": "act_data_pkt_fwd",
+      "importance": 0.07060557655475773
+    },
+    {
+      "feature": "Total Length of Fwd Packets",
+      "importance": 0.057483604851086376
+    },
+    {
+      "feature": "Init_Win_bytes_forward",
+      "importance": 0.05620281584478847
+    },
+    {
+      "feature": "Bwd Packet Length Std",
+      "importance": 0.05566396186310803
+    },
+    {
+      "feature": "Bwd Packet Length Mean",
+      "importance": 0.05152245564192935
+    },
+    {
+      "feature": "Fwd IAT Std",
+      "importance": 0.04527346756163444
+    },
+    {
+      "feature": "Destination Port",
+      "importance": 0.03966757592695229
+    },
+    {
+      "feature": "Avg Bwd Segment Size",
+      "importance": 0.03916081949280763
+    },
+    {
+      "feature": "Bwd Header Length",
+      "importance": 0.029302588093567266
+    },
+    {
+      "feature": "Total Fwd Packets",
+      "importance": 0.028384643450430486
+    },
+    {
+      "feature": "Fwd IAT Max",
+      "importance": 0.02812877391629455
+    },
+    {
+      "feature": "Bwd Packet Length Min",
+      "importance": 0.027276398614351022
+    },
+    {
+      "feature": "Total Length of Bwd Packets",
+      "importance": 0.027035612046710955
+    },
+    {
+      "feature": "Bwd Packets/s",
+      "importance": 0.026863243209263928
+    },
+    {
+      "feature": "Fwd Header Length",
+      "importance": 0.024162563304628362
+    },
+    {
+      "feature": "Average Packet Size",
+      "importance": 0.022364546317288264
+    },
+    {
+      "feature": "Bwd Packet Length Max",
+      "importance": 0.02128102187219282
+    },
+    {
+      "feature": "Fwd IAT Mean",
+      "importance": 0.01651998062813116
+    },
+    {
+      "feature": "Total Backward Packets",
+      "importance": 0.01596008138650028
+    },
+    {
+      "feature": "Fwd IAT Total",
+      "importance": 0.013692127949543326
+    },
+    {
+      "feature": "Init_Win_bytes_backward",
+      "importance": 0.012821919758537048
+    },
+    {
+      "feature": "Bwd IAT Total",
+      "importance": 0.010164001281042832
+    },
+    {
+      "feature": "Packet Length Mean",
+      "importance": 0.009827806255961729
+    },
+    {
+      "feature": "Fwd Packet Length Std",
+      "importance": 0.008457930053392872
+    },
+    {
+      "feature": "Flow IAT Std",
+      "importance": 0.007324280707581603
+    },
+    {
+      "feature": "Bwd IAT Mean",
+      "importance": 0.0072819225487811765
+    },
+    {
+      "feature": "Packet Length Std",
+      "importance": 0.007042585398347224
+    },
+    {
+      "feature": "Flow Bytes/s",
+      "importance": 0.00623384953272064
+    },
+    {
+      "feature": "Down/Up Ratio",
+      "importance": 0.006160224693927632
+    },
+    {
+      "feature": "min_seg_size_forward",
+      "importance": 0.004907807216785549
+    },
+    {
+      "feature": "Bwd IAT Max",
+      "importance": 0.004393188478765401
+    },
+    {
+      "feature": "Packet Length Variance",
+      "importance": 0.004031300965318152
+    },
+    {
+      "feature": "Flow IAT Max",
+      "importance": 0.00397075631525157
+    },
+    {
+      "feature": "Max Packet Length",
+      "importance": 0.003842401000251059
+    },
+    {
+      "feature": "Fwd IAT Min",
+      "importance": 0.0035873228242436187
+    },
+    {
+      "feature": "Bwd IAT Min",
+      "importance": 0.0033297914450257557
+    },
+    {
+      "feature": "Bwd IAT Std",
+      "importance": 0.0029258333122230903
+    },
+    {
+      "feature": "Min Packet Length",
+      "importance": 0.002159496744192594
+    },
+    {
+      "feature": "Flow Packets/s",
+      "importance": 0.00199818970890948
+    },
+    {
+      "feature": "URG Flag Count",
+      "importance": 0.0017778522660847822
+    },
+    {
+      "feature": "Flow IAT Min",
+      "importance": 0.0010700068199114288
+    },
+    {
+      "feature": "Fwd Packet Length Min",
+      "importance": 0.0009976746575118575
+    },
+    {
+      "feature": "Flow Duration",
+      "importance": 0.000972457286486128
+    },
+    {
+      "feature": "PSH Flag Count",
+      "importance": 0.0006168103352596316
+    },
+    {
+      "feature": "Fwd Packets/s",
+      "importance": 0.00040430100569822865
+    },
+    {
+      "feature": "ACK Flag Count",
+      "importance": 0.0002767916773716906
+    },
+    {
+      "feature": "Active Std",
+      "importance": 0.00024374735260278475
+    },
+    {
+      "feature": "Flow IAT Mean",
+      "importance": 0.00023536608961869746
+    },
+    {
+      "feature": "FIN Flag Count",
+      "importance": 0.00010602531187417242
+    },
+    {
+      "feature": "Idle Max",
+      "importance": 8.065651573179329e-05
+    },
+    {
+      "feature": "Idle Min",
+      "importance": 7.284836910364789e-05
+    },
+    {
+      "feature": "Active Mean",
+      "importance": 7.019498770408206e-05
+    },
+    {
+      "feature": "Active Max",
+      "importance": 5.77526044361125e-05
+    },
+    {
+      "feature": "Idle Mean",
+      "importance": 5.085121372533864e-05
+    },
+    {
+      "feature": "Active Min",
+      "importance": 8.85966420586473e-06
+    },
+    {
+      "feature": "Fwd PSH Flags",
+      "importance": 6.259684705824095e-06
+    },
+    {
+      "feature": "Idle Std",
+      "importance": 6.074083461966504e-06
+    },
+    {
+      "feature": "RST Flag Count",
+      "importance": 1.4749284783790678e-06
+    }
+  ],
+  "schema_summary": {
+    "features_used": 60,
+    "dropped_constant": [
+      "Bwd PSH Flags",
+      "Fwd URG Flags",
+      "Bwd URG Flags",
+      "CWE Flag Count",
+      "Fwd Avg Bytes/Bulk",
+      "Fwd Avg Packets/Bulk",
+      "Fwd Avg Bulk Rate",
+      "Bwd Avg Bytes/Bulk",
+      "Bwd Avg Packets/Bulk",
+      "Bwd Avg Bulk Rate"
+    ],
+    "dropped_duplicate": {
+      "SYN Flag Count": "Fwd PSH Flags",
+      "ECE Flag Count": "RST Flag Count",
+      "Avg Fwd Segment Size": "Fwd Packet Length Mean",
+      "Fwd Header Length.1": "Fwd Header Length",
+      "Subflow Fwd Packets": "Total Fwd Packets",
+      "Subflow Fwd Bytes": "Total Length of Fwd Packets",
+      "Subflow Bwd Packets": "Total Backward Packets",
+      "Subflow Bwd Bytes": "Total Length of Bwd Packets"
+    },
+    "dropped_identifier": [],
+    "dropped_non_numeric": []
+  }
+}
